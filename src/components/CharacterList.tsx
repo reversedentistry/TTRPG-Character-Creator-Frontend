@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { CharacterInfo } from "../models/CharacterInfo";
 
 function CharacterList() {
-    const [characters, setCharacters] = useState<CharacterInfo[] | null>(null);
+    const [characters, setCharacters] = useState<CharacterInfo[]>([]);
 
     const retrieveCharacters = () => {
         axios.get("http://localhost:5000/pcs")
@@ -18,14 +18,14 @@ function CharacterList() {
     }); 
 
     const renderCharacters = (characters: CharacterInfo[]) => {
-        return characters.map(character => {
-            <p key={character.pcId}>{character.pcName}</p>
+        return characters.map((character: CharacterInfo) => {
+            return <p key={character.pcId}>{character.pcName}</p>
         })
     }
 
     return (
         <div>
-            
+            {renderCharacters(characters)}
         </div>
     )
 }
