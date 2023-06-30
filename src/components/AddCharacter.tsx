@@ -6,7 +6,7 @@ function AddCharacter() {
     const navigate = useNavigate();
 
     const newCharacterRequest = async (playerCharacter: {charName: string, level: number, hitPoints: number, strength: number, intelligence: number, dexterity: number, wisdom: number, charisma: number, constitution: number}) => {
-        const requestConfig: AxiosRequestConfig = {
+        /*const requestConfig: AxiosRequestConfig = {
             headers: {
                 "name": playerCharacter.charName,
                 "level": playerCharacter.level,
@@ -25,7 +25,8 @@ function AddCharacter() {
             .then((res) => {
                 navigate(`/${res.data.id}`);
             }
-        ).catch(); 
+        ).catch();*/
+        console.log(playerCharacter);
     }
     
     return (
@@ -39,22 +40,32 @@ function AddCharacter() {
                 <Form>
                     <label>Character name</label>
                     <Field id="charName" name="charName" value={values.charName}/>
+                    
                     <label>Level</label>
-                    <Field id="lvl" name="lvl" value={values.level}/>
+                    <Field id="level" name="level" type="number" value={values.level}/>
+                    
                     <label>Hit points</label>
-                    <Field id="hp" name="hp" value={values.hitPoints}></Field>
+                    <Field id="hitPoints" name="hitPoints" type="number" value={values.hitPoints}></Field>
+                    
                     <label>Strength</label>
-                    <Field id="str" name="str" value={values.strength}></Field>
+                    <Field id="strength" name="strength" type="number" value={values.strength}></Field>
+                    
                     <label>Intelligence</label>
-                    <Field id="int" name="int" value={values.intelligence}></Field>
+                    <Field id="intelligence" name="intelligence" type="number" value={values.intelligence}></Field>
+                    
                     <label>Dexterity</label>
-                    <Field id="dex" name="dex" value={values.dexterity}></Field>
+                    <Field id="dexterity" name="dexterity" type="number" value={values.dexterity}></Field>
+                    
                     <label>Wisdom</label>
-                    <Field id="wis" name="wis" value={values.wisdom}></Field>
+                    <Field id="wisdom" name="wisdom" type="number" value={values.wisdom}></Field>
+                    
                     <label>Charisma</label>
-                    <Field id="cha" name="cha" value={values.charisma}></Field>
+                    <Field id="charisma" name="charisma" type="number" value={values.charisma}></Field>
+                    
                     <label>Constitution</label>
-                    <Field id="con" name="con" value={values.constitution}></Field>
+                    <Field id="constitution" name="constitution" type="number" value={values.constitution}></Field>
+                    
+                    <button type="submit">Submit</button>
                 </Form>
             )}
 
