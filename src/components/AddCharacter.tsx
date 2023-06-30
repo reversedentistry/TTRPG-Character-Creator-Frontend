@@ -38,31 +38,31 @@ function AddCharacter() {
             }}>
             {({ values }) => (
                 <Form>
-                    <label>Character name</label>
+                    <label htmlFor="charName">Character name</label>
                     <Field id="charName" name="charName" value={values.charName}/>
                     
-                    <label>Level</label>
+                    <label htmlFor="level">Level</label>
                     <Field id="level" name="level" type="number" value={values.level}/>
                     
-                    <label>Hit points</label>
+                    <label htmlFor="hitPoints">Hit points</label>
                     <Field id="hitPoints" name="hitPoints" type="number" value={values.hitPoints}></Field>
                     
-                    <label>Strength</label>
+                    <label htmlFor="strength">Strength</label>
                     <Field id="strength" name="strength" type="number" value={values.strength}></Field>
                     
-                    <label>Intelligence</label>
+                    <label htmlFor="intelligence">Intelligence</label>
                     <Field id="intelligence" name="intelligence" type="number" value={values.intelligence}></Field>
                     
-                    <label>Dexterity</label>
+                    <label htmlFor="dexterity">Dexterity</label>
                     <Field id="dexterity" name="dexterity" type="number" value={values.dexterity}></Field>
                     
-                    <label>Wisdom</label>
+                    <label htmlFor="wisdom">Wisdom</label>
                     <Field id="wisdom" name="wisdom" type="number" value={values.wisdom}></Field>
                     
-                    <label>Charisma</label>
+                    <label htmlFor="charisma">Charisma</label>
                     <Field id="charisma" name="charisma" type="number" value={values.charisma}></Field>
                     
-                    <label>Constitution</label>
+                    <label htmlFor="constitution">Constitution</label>
                     <Field id="constitution" name="constitution" type="number" value={values.constitution}></Field>
                     
                     <button type="submit">Submit</button>
