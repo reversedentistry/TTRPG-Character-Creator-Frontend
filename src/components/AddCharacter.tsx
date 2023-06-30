@@ -1,7 +1,10 @@
 import { Formik, Field, Form } from "formik";
 import axios, { AxiosRequestConfig } from "axios"; 
+import { useNavigate } from "react-router-dom";
 
 function AddCharacter() {
+    const navigate = useNavigate();
+
     const newCharacterRequest = async (playerCharacter: {charName: string, level: number, hitPoints: number, strength: number, intelligence: number, dexterity: number, wisdom: number, charisma: number, constitution: number}) => {
         const requestConfig: AxiosRequestConfig = {
             headers: {
@@ -20,7 +23,7 @@ function AddCharacter() {
         
         axios.post("http://localhost:5000/pcs", requestConfig)
             .then((res) => {
-
+                navigate(`/${res.data.id}`);
             }
         ).catch(); 
     }
