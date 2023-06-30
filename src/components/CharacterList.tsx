@@ -14,18 +14,14 @@ function CharacterList() {
     };
     
     useEffect(() => {
-        retrieveCharacters();         
-    }); 
-
-    const renderCharacters = (characters: CharacterInfo[]) => {
-        return characters.map((character: CharacterInfo) => {
-            return <p key={character.pcId}>{character.pcName}</p>
-        })
-    }
+        retrieveCharacters();        
+    }, []);     
 
     return (
         <div>
-            {renderCharacters(characters)}
+            {characters.map(character => {
+                return <p key={character.pcId}>{character.pcName}</p>
+            })}
         </div>
     )
 }
