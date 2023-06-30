@@ -14,8 +14,20 @@ function CharacterList() {
     };
     
     useEffect(() => {
-        retrieveCharacters(); 
+        retrieveCharacters();         
     }); 
+
+    const renderCharacters = (characters: CharacterInfo[]) => {
+        return characters.map(character => {
+            <p key={character.pcId}>{character.pcName}</p>
+        })
+    }
+
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 export default CharacterList;
