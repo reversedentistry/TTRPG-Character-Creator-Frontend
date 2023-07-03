@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios"; 
 import { useState, useEffect } from "react";
-import { CharacterInfo } from "../models/CharacterInfo";
+import { CharacterInfo } from "../../models/CharacterInfo";
 
 function CharacterList() {
     const [characters, setCharacters] = useState<CharacterInfo[]>([]);
@@ -15,7 +15,7 @@ function CharacterList() {
     
     useEffect(() => {
         retrieveCharacters();        
-    }, []);     
+    }, [characters]);     
 
     return (
         <div>
