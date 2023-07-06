@@ -1,15 +1,15 @@
 export class CharacterInfo {
-    pcId: number; 
-    pcName: string; 
-    player: number; 
-    level: number; 
-    hitPoints: number;
-    strength: number; 
-    intelligence: number; 
-    dexterity: number; 
-    wisdom: number;
-    charisma: number;
-    constitution: number;
+    pcId: number | undefined; 
+    pcName: string | undefined; 
+    player: number | undefined; 
+    level: number | undefined; 
+    hitPoints: number | undefined;
+    strength: number | undefined; 
+    intelligence: number | undefined; 
+    dexterity: number | undefined; 
+    wisdom: number | undefined;
+    charisma: number | undefined;
+    constitution: number | undefined;
 
     constructor(pcId: number, pcName: string, player: number, level: number, hitPoints: number, strength: number, intelligence: number, dexterity: number, wisdom: number, charisma: number, constitution: number) {
         this.pcId = pcId; 
