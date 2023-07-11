@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import CharacterEditor from "./CharacterEditor";
 
 function CharacterPage() {
-    const [characterInfo, setCharacterInfo] = useState<CharacterInfo>();
-    const [characterEditor, setCharacterEditor] = useState<boolean>(false);
+    const [characterInfo, setCharacterInfo] = useState<CharacterInfo | null>();
+    // const [characterEditor, setCharacterEditor] = useState<boolean>(false);
 
     let { characterId } = useParams();
 
@@ -21,8 +21,9 @@ function CharacterPage() {
             });
     }
 
+    // Maybe edit this later as a link
     const openCharacterEditor = () => {
-        setCharacterEditor(!characterEditor);
+        navigate(`http://localhost:5000/pcs/${characterId}/edit`);
     }
     
     const deleteCharacter = () => {
@@ -38,9 +39,7 @@ function CharacterPage() {
         retrieveCharacterInfo();
     }, [characterInfo]);
 
-    if (characterEditor) {
-        <CharacterEditor pcId={characterInfo?.pcId} pcName={characterInfo?.pcName} player={characterInfo?.player} level={characterInfo?.level} hitPoints={characterInfo?.hitPoints} strength={characterInfo?.strength} intelligence={characterInfo?.intelligence} dexterity={characterInfo?.dexterity} wisdom={characterInfo?.wisdom} charisma={characterInfo?.charisma} constitution={characterInfo?.constitution}/>
-    } else {
+    
         return (
             <section>
                 <button onClick={openCharacterEditor}>Edit character</button>
@@ -58,7 +57,7 @@ function CharacterPage() {
                 <button onClick={deleteCharacter}>Delete character</button>
             </section>
         )
-    }  
+     
     
 }
 
