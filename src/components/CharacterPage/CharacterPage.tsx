@@ -2,7 +2,7 @@ import axios from "axios";
 import { CharacterInfo } from "../../models/CharacterInfo";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import CharacterEditor from "./CharacterEditor";
+import CharacterEditor from "../CharacterEditor/CharacterEditor";
 
 function CharacterPage() {
     const [characterInfo, setCharacterInfo] = useState<CharacterInfo | null>();

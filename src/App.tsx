@@ -3,7 +3,7 @@ import AddCharacter from './components/AddCharacter/AddCharacter';
 import './App.css';
 import CharacterPage from './components/CharacterPage/CharacterPage';
 import CharacterList from './components/CharacterList/CharacterList';
-import CharacterEditor from './components/CharacterPage/CharacterEditor';
+import CharacterEditor from './components/CharacterEditor/CharacterEditor';
 
 function App() {
   return (
