@@ -3,9 +3,21 @@ import axios, { AxiosRequestConfig } from "axios";
 import { useNavigate } from "react-router-dom";
 
 function AddCharacter() {
+    interface NewPC {
+        pcName:string,
+        level:number, 
+        hitPoints:number,
+        strength:number,
+        intelligence:number,
+        dexterity:number,
+        wisdom:number, 
+        charisma:number,
+        constitution:number
+    }
+    
     const navigate = useNavigate();
 
-    const newCharacterRequest = async (playerCharacter: {charName: string, level: number, hitPoints: number, strength: number, intelligence: number, dexterity: number, wisdom: number, charisma: number, constitution: number}) => {
+    const newCharacterRequest = async (playerCharacter:NewPC) => {
         /*const requestConfig: AxiosRequestConfig = {
             headers: {
                 "pcName": playerCharacter.charName,
@@ -28,18 +40,30 @@ function AddCharacter() {
         ).catch();*/
         console.log(playerCharacter);
     }
+
+    const newPCInitialValues:NewPC = {
+        pcName: "",
+        level: 0, 
+        hitPoints: 0,
+        strength: 0,
+        intelligence: 0,
+        dexterity: 0,
+        wisdom: 0, 
+        charisma: 0,
+        constitution: 0
+    }
     
     return (
     <div>
         <Formik
-            initialValues={{ charName: "", level: 0, hitPoints: 0, strength: 0, intelligence: 0, dexterity: 0, wisdom: 0, charisma: 0, constitution: 0}}
+            initialValues={newPCInitialValues}
             onSubmit={(values) => {
                 newCharacterRequest(values);
             }}>
             {({ values }) => (
                 <Form>
                     <label htmlFor="charName">Character name</label>
-                    <Field id="charName" name="charName" value={values.charName}/>
+                    <Field id="charName" name="charName" value={values.pcName}/>
                     
                     <label htmlFor="level">Level</label>
                     <Field id="level" name="level" type="number" value={values.level}/>
