@@ -8,7 +8,7 @@ function AddCharacter() {
     const newCharacterRequest = async (playerCharacter: {charName: string, level: number, hitPoints: number, strength: number, intelligence: number, dexterity: number, wisdom: number, charisma: number, constitution: number}) => {
         /*const requestConfig: AxiosRequestConfig = {
             headers: {
-                "name": playerCharacter.charName,
+                "pcName": playerCharacter.charName,
                 "level": playerCharacter.level,
                 "hitPoints": playerCharacter.hitPoints,
                 "strength": playerCharacter.strength,

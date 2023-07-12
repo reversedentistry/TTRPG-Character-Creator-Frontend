@@ -1,13 +1,14 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { Formik, Field, Form } from "formik";
 import { CharacterInfo } from "../../models/CharacterInfo";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function CharacterEditor() {
     const [characterInfo, setCharacterInfo] = useState<CharacterInfo | null>();
     
     let { characterId } = useParams();
+    const navigate = useNavigate();
     
     const retrieveCharacterInfo = () => {
         axios.get(`http://localhost:5000/pcs/${characterId}`)
@@ -21,7 +22,9 @@ function CharacterEditor() {
     const editCharacterInfo = (playerCharacter:CharacterInfo) => {
         /*const requestConfig: AxiosRequestConfig = {
             headers: {
-                "name": playerCharacter.pcName,
+                "pcId": playerCharacter.pcId,
+                "pcName": playerCharacter.pcName,
+                "player": playerCharacter.player,
                 "level": playerCharacter.level,
                 "hitPoints": playerCharacter.hitPoints,
                 "strength": playerCharacter.strength,
@@ -34,12 +37,13 @@ function CharacterEditor() {
             }
         }
         
-        axios.post("http://localhost:5000/pcs", requestConfig)
+        axios.put("http://localhost:5000/pcs", requestConfig)
             .then((res) => {
                 navigate(`/${res.data.id}`);
             }
         ).catch();*/
-        console.log(playerCharacter)
+        console.log(playerCharacter);
+        navigate(`/${characterId}`);
     }
 
     useEffect(() => {
@@ -55,7 +59,34 @@ function CharacterEditor() {
             }}>
             {({ values }) => (
                 <Form>
+                    <label htmlFor="charName">Character name</label>
+                    <Field id="charName" name="charName" value={values.pcName}/>
                     
+                    <label htmlFor="level">Level</label>
+                    <Field id="level" name="level" type="number" value={values.level}/>
+                    
+                    <label htmlFor="hitPoints">Hit points</label>
+                    <Field id="hitPoints" name="hitPoints" type="number" value={values.hitPoints}></Field>
+                    
+                    <label htmlFor="strength">Strength</label>
+                    <Field id="strength" name="strength" type="number" value={values.strength}></Field>
+                    
+                    <label htmlFor="intelligence">Intelligence</label>
+                    <Field id="intelligence" name="intelligence" type="number" value={values.intelligence}></Field>
+                    
+                    <label htmlFor="dexterity">Dexterity</label>
+                    <Field id="dexterity" name="dexterity" type="number" value={values.dexterity}></Field>
+                    
+                    <label htmlFor="wisdom">Wisdom</label>
+                    <Field id="wisdom" name="wisdom" type="number" value={values.wisdom}></Field>
+                    
+                    <label htmlFor="charisma">Charisma</label>
+                    <Field id="charisma" name="charisma" type="number" value={values.charisma}></Field>
+                    
+                    <label htmlFor="constitution">Constitution</label>
+                    <Field id="constitution" name="constitution" type="number" value={values.constitution}></Field>
+                    
+                    <button type="submit">Submit</button>
                 </Form>
             )}
             </Formik>
