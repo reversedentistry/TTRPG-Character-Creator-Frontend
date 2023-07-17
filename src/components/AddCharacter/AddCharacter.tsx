@@ -62,7 +62,7 @@ function AddCharacter() {
             }}>
             {({ values }) => (
                 <Form>
-                    <label htmlFor="charName">Character name</label>
+                    <label htmlFor="pcName">Character name</label>
                     <Field id="pcName" name="pcName" value={values.pcName}/>
                     
                     <label htmlFor="level">Level</label>
