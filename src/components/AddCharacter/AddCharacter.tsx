@@ -56,6 +56,7 @@ function AddCharacter() {
     
     return (
     <div id="add-character-page">
+        <h1>Create a new character!</h1>
         <Formik
             initialValues={newPCInitialValues}
             onSubmit={(values) => {
