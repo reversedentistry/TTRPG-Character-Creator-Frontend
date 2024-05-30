@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import AddCharacter from './components/AddCharacter/AddCharacter';
+import AddCharacter from './components/AddCharacter';
 import './App.css';
 import CharacterPage from './components/CharacterPage/CharacterPage';
 import CharacterList from './components/CharacterList/CharacterList';

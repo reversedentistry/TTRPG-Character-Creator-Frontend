@@ -1,0 +1,17 @@
+#add-character-page {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 60%;
+}
+
+input {
+    padding: 8px;
+    border-radius: 8px;
+}

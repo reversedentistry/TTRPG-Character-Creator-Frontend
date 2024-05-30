@@ -1,6 +1,7 @@
 import { Formik, Field, Form } from "formik";
-import axios, { AxiosRequestConfig } from "axios"; 
+// import axios, { AxiosRequestConfig } from "axios"; 
 import { useNavigate } from "react-router-dom";
+import './AddCharacter.css';
 
 function AddCharacter() {
     interface NewPC {
@@ -54,7 +55,7 @@ function AddCharacter() {
     }
     
     return (
-    <div>
+    <div id="add-character-page">
         <Formik
             initialValues={newPCInitialValues}
             onSubmit={(values) => {
